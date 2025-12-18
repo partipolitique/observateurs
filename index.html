@@ -41,26 +41,50 @@
 
         .logo-container {
             margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
-        .logo {
-            font-size: 3.5rem;
+        .logo-image {
+            height: 180px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        .logo-text {
+            text-align: center;
+        }
+
+        .logo-acronym {
+            font-size: 4rem;
             font-weight: bold;
             color: var(--secondary-gold);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
             letter-spacing: 2px;
+            margin-bottom: 10px;
         }
 
-        .logo-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 10px;
+        .logo-full-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .logo-mission {
+            font-size: 1.4rem;
+            color: var(--secondary-gold);
             font-style: italic;
+            opacity: 0.9;
         }
 
         h1 {
             font-size: 2.8rem;
-            margin: 20px 0 15px 0;
+            margin: 30px 0 20px 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
@@ -233,7 +257,7 @@
 
         .observers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             margin-top: 30px;
         }
@@ -244,43 +268,43 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
         }
 
         .observer-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: var(--secondary-gold);
         }
 
-        .observer-photo {
-            height: 350px; /* Augmenté pour mieux afficher les photos */
-            width: 100%;
-            background-color: #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            font-size: 5rem;
-            background-size: contain; /* Changé de 'cover' à 'contain' */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: white; /* Fond blanc pour mieux voir les images */
+        .observer-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-bg));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .observer-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .observer-name {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-gold);
+        }
+
+        .observer-role {
+            font-size: 1.3rem;
+            font-weight: bold;
+            opacity: 0.9;
+            margin-bottom: 20px;
         }
 
         .observer-info {
             padding: 30px;
-        }
-
-        .observer-name {
-            color: var(--primary-blue);
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .observer-role {
-            color: var(--secondary-gold);
-            font-weight: bold;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
         }
 
         .skills-list {
@@ -443,8 +467,16 @@
                 font-size: 2.2rem;
             }
             
-            .logo {
-                font-size: 2.5rem;
+            .logo-acronym {
+                font-size: 3rem;
+            }
+            
+            .logo-full-name {
+                font-size: 1.5rem;
+            }
+            
+            .logo-image {
+                height: 140px;
             }
             
             .nav-container {
@@ -452,8 +484,26 @@
                 gap: 5px;
             }
             
-            .observer-photo {
-                height: 300px; /* Ajusté pour mobile */
+            .observer-name {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-acronym {
+                font-size: 2.5rem;
+            }
+            
+            .logo-full-name {
+                font-size: 1.3rem;
+            }
+            
+            .logo-image {
+                height: 120px;
+            }
+            
+            .observer-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -463,11 +513,15 @@
 <header>
     <div class="header-content">
         <div class="logo-container">
-            <div class="logo">UES</div>
-            <div class="logo-subtitle">Union des États Souverains</div>
+            <img src="logo.jpeg" alt="Logo de l'Union des États Souverains" class="logo-image">
+            <div class="logo-text">
+                <div class="logo-acronym">UES</div>
+                <div class="logo-full-name">Union des États Souverains</div>
+                <div class="logo-mission">Mission d'Observation Électorale</div>
+            </div>
         </div>
-        <h1>Mission d'Observation Électorale</h1>
-        <p>Élection Présidentielle de la République du Wakanda - 2025</p>
+        <h1>Observation de l'Élection Présidentielle</h1>
+        <p>République du Wakanda - 2025</p>
         <div class="mission-title">
             Neutralité • Impartialité • Professionnalisme
         </div>
@@ -574,14 +628,13 @@
         
         <div class="observers-grid">
             <div class="observer-card">
-                <div class="observer-photo" style="background-image: url('delphine.png');">
-                    <!-- Si l'image n'est pas disponible, afficher l'initiale -->
-                    <span style="display: none;">SD</span>
-                </div>
-                <div class="observer-info">
+                <div class="observer-header">
+                    <div class="observer-icon">👩‍⚖️</div>
                     <h2 class="observer-name">MANE Sidou Delphine</h2>
                     <div class="observer-role">Observatrice Principale</div>
-                    <p>Spécialiste en observation électorale avec plus de 10 ans d'expérience dans diverses missions internationales.</p>
+                </div>
+                <div class="observer-info">
+                    <p><strong>Spécialiste en observation électorale</strong> avec plus de 10 ans d'expérience dans diverses missions internationales.</p>
                     
                     <h3>Expérience et compétences :</h3>
                     <ul class="skills-list">
@@ -594,14 +647,13 @@
             </div>
             
             <div class="observer-card">
-                <div class="observer-photo" style="background-image: url('fatou.jpeg');">
-                    <!-- Si l'image n'est pas disponible, afficher l'initiale -->
-                    <span style="display: none;">FW</span>
-                </div>
-                <div class="observer-info">
+                <div class="observer-header">
+                    <div class="observer-icon">👩‍💼</div>
                     <h2 class="observer-name">WANGARA Fatou</h2>
                     <div class="observer-role">Observatrice</div>
-                    <p>Experte en gouvernance démocratique et processus électoraux, avec une expertise particulière en Afrique subsaharienne.</p>
+                </div>
+                <div class="observer-info">
+                    <p><strong>Experte en gouvernance démocratique</strong> et processus électoraux, avec une expertise particulière en Afrique subsaharienne.</p>
                     
                     <h3>Expérience et compétences :</h3>
                     <ul class="skills-list">
@@ -813,36 +865,20 @@
         });
     });
     
-    // Gestion des images manquantes
+    // Gestion du logo manquant
     document.addEventListener('DOMContentLoaded', function() {
-        const observerPhotos = document.querySelectorAll('.observer-photo');
-        
-        observerPhotos.forEach(photo => {
-            // Vérifier si l'image est chargée
+        const logoImage = document.querySelector('.logo-image');
+        if (logoImage) {
             const img = new Image();
-            const bgImage = photo.style.backgroundImage;
+            img.src = 'logo.jpeg';
             
-            if (bgImage && bgImage !== 'none') {
-                // Extraire l'URL de l'image du style background-image
-                const url = bgImage.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
-                img.src = url;
-                
-                img.onload = function() {
-                    // L'image existe, on la garde
-                };
-                
-                img.onerror = function() {
-                    // L'image n'existe pas, afficher l'initiale
-                    photo.style.backgroundImage = 'none';
-                    const initial = photo.querySelector('span');
-                    if (initial) {
-                        initial.style.display = 'flex';
-                        initial.style.fontSize = '5rem';
-                        initial.style.color = 'var(--primary-blue)';
-                    }
-                };
-            }
-        });
+            img.onerror = function() {
+                // Si le logo n'existe pas, masquer l'image et ajuster le style
+                logoImage.style.display = 'none';
+                document.querySelector('.logo-acronym').style.fontSize = '5rem';
+                document.querySelector('.logo-full-name').style.fontSize = '2rem';
+            };
+        }
     });
     
     // Mise à jour de la navigation active lors du défilement
