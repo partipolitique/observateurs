@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Union des États Souverains - Mission d'Observation Électorale au Wakanda</title>
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-gold: #d4af37;
+            --accent-green: #2d5016;
+            --light-bg: #f8f9fa;
+            --dark-bg: #1e293b;
+            --text-light: #ffffff;
+            --text-dark: #2d3748;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-bg));
+            color: var(--text-light);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--secondary-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .logo-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 20px 0 15px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .mission-title {
+            font-size: 1.4rem;
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            border: 1px solid var(--secondary-gold);
+        }
+
+        nav {
+            background-color: var(--primary-blue);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            background-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-gold));
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .principle-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-gold);
+        }
+
+        .principle-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .principle-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .history-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--secondary-gold);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-year {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 40%;
+            margin: 0 30px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            order: -1;
+        }
+
+        .observers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .observer-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .observer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .observer-photo {
+            height: 300px;
+            width: 100%;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 5rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .observer-info {
+            padding: 30px;
+        }
+
+        .observer-name {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .observer-role {
+            color: var(--secondary-gold);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .skills-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .skills-list li:before {
+            content: "✓";
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid var(--secondary-gold);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .objectives-list li {
+            padding: 15px 0 15px 40px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .objectives-list li:before {
+            content: "🎯";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .map-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .map-placeholder span {
+            background-color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-bg));
+            color: var(--text-light);
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-gold);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #cbd5e0;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .history-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-year {
+                margin-left: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+                margin-right: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content {
+                order: 1;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .observer-photo {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo-container">
+            <div class="logo">UES</div>
+            <div class="logo-subtitle">Union des États Souverains</div>
+        </div>
+        <h1>Mission d'Observation Électorale</h1>
+        <p>Élection Présidentielle de la République du Wakanda - 2025</p>
+        <div class="mission-title">
+            Neutralité • Impartialité • Professionnalisme
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="#principes" class="active">Principes</a>
+        <a href="#historique">Historique</a>
+        <a href="#observateurs">Observatrices</a>
+        <a href="#mission">Notre Mission</a>
+        <a href="#objectifs">Objectifs</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<main>
+    <section id="principes" class="container">
+        <div class="section-header">
+            <h2>Principes Fondamentaux</h2>
+            <p>Les principes qui guident toutes nos activités et assurent la crédibilité de notre travail</p>
+        </div>
+        
+        <div class="principles-grid">
+            <div class="principle-item">
+                <div class="principle-icon">⚖️</div>
+                <h3>Impartialité Absolue</h3>
+                <p>Nos observateurs ne manifestent aucune préférence pour un parti, un candidat ou un résultat spécifique. Leur rôle est d'observer et de rapporter, non d'influencer.</p>
+            </div>
+            
+            <div class="principle-item">
+                <div class="principle-icon">💰</div>
+                <h3>Indépendance Financière</h3>
+                <p>Notre financement provient de contributions multiples et transparentes, garantissant notre indépendance vis-à-vis de tout gouvernement ou groupe d'intérêt particulier.</p>
+            </div>
+            
+            <div class="principle-item">
+                <div class="principle-icon">📊</div>
+                <h3>Rigueur Méthodologique</h3>
+                <p>Nous appliquons une méthodologie rigoureuse et standardisée, conforme aux meilleures pratiques internationales en matière d'observation électorale.</p>
+            </div>
+            
+            <div class="principle-item">
+                <div class="principle-icon">🌍</div>
+                <h3>Respect des Contextes Locaux</h3>
+                <p>Nous adaptons nos méthodes aux spécificités locales tout en maintenant nos standards internationaux, dans le respect des cultures et des traditions nationales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="historique" class="container">
+        <div class="section-header">
+            <h2>Notre Historique</h2>
+            <p>Plus de deux décennies d'engagement pour la démocratie et la transparence électorale</p>
+        </div>
+        
+        <div class="history-timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1995</div>
+                <div class="timeline-content">
+                    <h3>Fondation de l'organisation</h3>
+                    <p>Création de l'Union des États Souverains par 15 États membres fondateurs, avec pour mission de promouvoir la démocratie et les droits de l'homme.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2001</div>
+                <div class="timeline-content">
+                    <h3>Première mission d'observation</h3>
+                    <p>Déploiement de notre première mission d'observation électorale internationale, établissant les bases de notre méthodologie actuelle.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2010</div>
+                <div class="timeline-content">
+                    <h3>Élargissement et reconnaissance</h3>
+                    <p>L'organisation compte désormais 40 États membres et obtient un statut consultatif auprès des Nations Unies et d'autres organisations internationales.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-content">
+                    <h3>Mission au Wakanda</h3>
+                    <p>Déploiement de notre mission d'observation électorale pour l'élection présidentielle au Wakanda, appliquant les standards les plus élevés de notre méthodologie.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Reconnaissance Internationale</h3>
+            <p>L'Union des États Souverains bénéficie d'une reconnaissance internationale pour la qualité de son travail et son engagement en faveur de la démocratie. Notre organisation entretient des relations de coopération avec de nombreuses institutions internationales.</p>
+            <p>L'Union des États Souverains entretient des relations de partenariat avec des organisations internationales, des institutions académiques et des acteurs de la société civile pour renforcer l'impact de ses missions d'observation électorale.</p>
+        </div>
+    </section>
+
+    <section id="observateurs" class="container">
+        <div class="section-header">
+            <h2>Nos Observatrices</h2>
+            <p>Une équipe de professionnelles expérimentées et formées aux standards internationaux d'observation électorale</p>
+        </div>
+        
+        <div class="observers-grid">
+            <div class="observer-card">
+                <div class="observer-photo" style="background-image: url('delphine.jpg'); background-color: #e2e8f0;">
+                    <!-- Si l'image n'est pas disponible, afficher l'initiale -->
+                    <span style="display: none;">SD</span>
+                </div>
+                <div class="observer-info">
+                    <h2 class="observer-name">MANE Sidou Delphine</h2>
+                    <div class="observer-role">Observatrice Principale</div>
+                    <p>Spécialiste en observation électorale avec plus de 10 ans d'expérience dans diverses missions internationales.</p>
+                    
+                    <h3>Expérience et compétences :</h3>
+                    <ul class="skills-list">
+                        <li><strong>15 missions d'observation</strong> à travers le monde</li>
+                        <li><strong>Formation certifiée</strong> en observation électorale (Institut International pour la Démocratie)</li>
+                        <li><strong>Expertise en :</strong> processus électoraux, droit électoral, médiation</li>
+                        <li><strong>Langues :</strong> Français, Anglais, Portugais</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="observer-card">
+                <div class="observer-photo" style="background-image: url('fatou.jpg'); background-color: #e2e8f0;">
+                    <!-- Si l'image n'est pas disponible, afficher l'initiale -->
+                    <span style="display: none;">FW</span>
+                </div>
+                <div class="observer-info">
+                    <h2 class="observer-name">WANGARA Fatou</h2>
+                    <div class="observer-role">Observatrice</div>
+                    <p>Experte en gouvernance démocratique et processus électoraux, avec une expertise particulière en Afrique subsaharienne.</p>
+                    
+                    <h3>Expérience et compétences :</h3>
+                    <ul class="skills-list">
+                        <li><strong>8 ans d'expérience</strong> dans l'observation électorale</li>
+                        <li><strong>Diplômée en Sciences Politiques</strong> (Université de Genève)</li>
+                        <li><strong>Expertise en :</strong> analyse des risques électoraux, genre et élections</li>
+                        <li><strong>Langues :</strong> Français, Anglais, Swahili</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Rôle et Engagement des Observateurs</h3>
+            <p>Les observateurs électoraux de l'Union des États Souverains s'engagent à respecter un code de conduite strict et à remplir leurs missions avec professionnalisme et impartialité. Leur rôle est crucial pour renforcer la transparence et la crédibilité du processus électoral.</p>
+            <p>Chaque observatrice déploie ses activités dans le respect strict des droits et obligations des observateurs électoraux, conformément aux normes internationales en la matière.</p>
+            
+            <div class="principles-grid" style="margin-top: 30px;">
+                <div class="principle-item">
+                    <h4>Neutralité et impartialité</h4>
+                    <p>Les observateurs s'engagent à faire preuve de neutralité et d'impartialité tout au long de la mission.</p>
+                </div>
+                
+                <div class="principle-item">
+                    <h4>Non-interférence</h4>
+                    <p>Les observateurs ne doivent pas interférer dans les opérations de vote, le dépouillement ou toute autre activité électorale.</p>
+                </div>
+                
+                <div class="principle-item">
+                    <h4>Documentation factuelle</h4>
+                    <p>Les observateurs documentent uniquement des faits vérifiables et observés directement.</p>
+                </div>
+                
+                <div class="principle-item">
+                    <h4>Respect des autorités</h4>
+                    <p>Les observateurs s'engagent à respecter les instructions des autorités électorales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="container">
+        <div class="section-header">
+            <h2>Présentation de la Mission</h2>
+            <p>Observation de l'élection présidentielle de la République du Wakanda - 2025</p>
+        </div>
+        
+        <div class="card">
+            <h3>Notre Approche</h3>
+            <p>L'Union des États Souverains met en place une mission d'observation électorale visant à contribuer à la transparence, à la crédibilité et au bon déroulement de l'élection présidentielle.</p>
+            <p>La mission adopte les principes de neutralité, d'indépendance et d'impartialité, conformément aux normes internationales d'observation électorale.</p>
+            <p>Notre approche repose sur une méthodologie rigoureuse et systématique qui couvre l'ensemble du processus électoral, de la préparation du scrutin à la publication des résultats. Nous nous engageons à fournir une évaluation objective et factuelle du déroulement des élections.</p>
+            
+            <h3 style="margin-top: 30px;">Qualifications et Formation</h3>
+            <p>Toutes nos observatrices ont suivi une formation rigoureuse et répondent aux exigences professionnelles les plus élevées en matière d'observation électorale internationale.</p>
+            
+            <div class="principles-grid" style="margin-top: 20px;">
+                <div class="principle-item">
+                    <h4>Formation certifiée</h4>
+                    <p>Certification en observation électorale selon les standards internationaux</p>
+                </div>
+                
+                <div class="principle-item">
+                    <h4>Compétences linguistiques</h4>
+                    <p>Maîtrise des langues locales et des langues de travail internationales</p>
+                </div>
+                
+                <div class="principle-item">
+                    <h4>Connaissance du terrain</h4>
+                    <p>Familiarité avec le contexte local et les spécificités culturelles</p>
+                </div>
+                
+                <div class="principle-item">
+                    <h4>Méthodologie rigoureuse</h4>
+                    <p>Application systématique des protocoles d'observation standardisés</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="objectifs" class="container">
+        <div class="section-header">
+            <h2>Objectifs de la Mission</h2>
+            <p>Des objectifs clairs pour une observation électorale complète et efficace</p>
+        </div>
+        
+        <div class="card">
+            <h3>Objectif Général</h3>
+            <p>Observer le déroulement du processus électoral afin d'en évaluer la transparence, l'équité, l'organisation et la conformité avec les lois électorales en vigueur.</p>
+            <p>Notre mission vise à fournir une analyse complète et objective du processus électoral dans son ensemble, en identifiant les forces et les faiblesses du système et en formulant des recommandations pour son amélioration continue.</p>
+            
+            <h3 style="margin-top: 40px;">Objectifs Spécifiques</h3>
+            <ul class="objectives-list">
+                <li><strong>Évaluer les conditions d'ouverture des bureaux de vote</strong><br>Vérifier que les bureaux de vote ouvrent à l'heure prévue, disposent du matériel nécessaire et que le personnel électoral est présent et formé.</li>
+                <li><strong>Observer les procédures de vote et l'accessibilité pour les électeurs</strong><br>Contrôler le respect des procédures de vote, l'accessibilité des bureaux pour tous les citoyens (personnes handicapées, personnes âgées) et le secret du vote.</li>
+                <li><strong>Vérifier la régularité du dépouillement et de la compilation des résultats</strong><br>Superviser les procédures de dépouillement, de comptage et de compilation des résultats pour assurer leur exactitude et leur transparence.</li>
+                <li><strong>Documenter tout incident ou irrégularité</strong><br>Recueillir et enregistrer systématiquement tout incident, tension ou irrégularité observée pendant le processus électoral.</li>
+                <li><strong>Produire un rapport objectif basé sur des observations factuelles</strong><br>Élaborer un rapport détaillé et impartial présentant les conclusions de la mission d'observation, basées exclusivement sur des faits vérifiables.</li>
+            </ul>
+            
+            <h3 style="margin-top: 40px;">Périmètre Géographique</h3>
+            <p>La mission d'observation couvre l'ensemble du territoire national du Wakanda pour assurer une couverture complète et représentative du processus électoral.</p>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <span>Carte du Wakanda - Zone d'observation complète</span>
+                </div>
+                <p><em>La mission sera déployée sur l'ensemble du territoire national du Wakanda</em></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="section-header">
+            <h2>Contact et Informations</h2>
+            <p>L'Union des États Souverains est à votre disposition pour toute information concernant sa mission d'observation électorale au Wakanda</p>
+        </div>
+        
+        <div class="card">
+            <p>Nous nous engageons à répondre à toutes vos demandes dans les meilleurs délais, dans le respect des principes de transparence et de neutralité qui guident notre mission.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">🏛️</div>
+                    <h3>Nom de l'organisation</h3>
+                    <p><strong>Union des États Souverains</strong><br>Mission d'Observation Électorale</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><strong>contact@union-etats-souverains.org</strong><br>election-wakanda@union-etats-souverains.org</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>Téléphone</h3>
+                    <p><strong>+243 22 123 45 67</strong><br>Lundi - Vendredi, 9h00 - 17h00 (Heure de Wakanda)</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Adresse du siège</h3>
+                    <p><strong>Cité Diamant Wakanda City</strong><br>BP 10450, Wakanda City</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Union des États Souverains</h3>
+            <p>Organisation internationale dédiée à la promotion de la démocratie, des droits de l'homme et de la transparence électorale à travers le monde.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Mission au Wakanda</h3>
+            <p>Observation de l'élection présidentielle de la République du Wakanda - 2025.</p>
+            <p>Neutralité • Impartialité • Professionnalisme</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Liens Rapides</h3>
+            <a href="#principes">Principes Fondamentaux</a>
+            <a href="#historique">Notre Historique</a>
+            <a href="#observateurs">Nos Observatrices</a>
+            <a href="#mission">Notre Mission</a>
+            <a href="#objectifs">Objectifs</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Partenaires</h3>
+            <p>Nations Unies</p>
+            <p>Organisations Régionales</p>
+            <p>Institutions Académiques</p>
+            <p>Société Civile</p>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 – Union des États Souverains | Mission d'Observation Électorale au Wakanda</p>
+        <p>Tous droits réservés | Site officiel de la mission</p>
+    </div>
+</footer>
+
+<script>
+    // Navigation fluide
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Mettre à jour la classe active
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Défilement fluide vers la section cible
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Gestion des images manquantes
+    document.addEventListener('DOMContentLoaded', function() {
+        const observerPhotos = document.querySelectorAll('.observer-photo');
+        
+        observerPhotos.forEach(photo => {
+            // Vérifier si l'image est chargée
+            const img = new Image();
+            const bgImage = photo.style.backgroundImage;
+            
+            if (bgImage && bgImage !== 'none') {
+                // Extraire l'URL de l'image du style background-image
+                const url = bgImage.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
+                img.src = url;
+                
+                img.onload = function() {
+                    // L'image existe, on la garde
+                };
+                
+                img.onerror = function() {
+                    // L'image n'existe pas, afficher l'initiale
+                    photo.style.backgroundImage = 'none';
+                    const initial = photo.querySelector('span');
+                    if (initial) {
+                        initial.style.display = 'flex';
+                        initial.style.fontSize = '5rem';
+                        initial.style.color = 'var(--primary-blue)';
+                    }
+                };
+            }
+        });
+    });
+    
+    // Mise à jour de la navigation active lors du défilement
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        let currentSectionId = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSectionId = '#' + section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentSectionId) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
