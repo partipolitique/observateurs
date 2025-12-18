@@ -252,7 +252,7 @@
         }
 
         .observer-photo {
-            height: 300px;
+            height: 350px; /* Augmenté pour mieux afficher les photos */
             width: 100%;
             background-color: #e2e8f0;
             display: flex;
@@ -260,8 +260,10 @@
             justify-content: center;
             color: var(--primary-blue);
             font-size: 5rem;
-            background-size: cover;
+            background-size: contain; /* Changé de 'cover' à 'contain' */
             background-position: center;
+            background-repeat: no-repeat;
+            background-color: white; /* Fond blanc pour mieux voir les images */
         }
 
         .observer-info {
@@ -451,7 +453,7 @@
             }
             
             .observer-photo {
-                height: 250px;
+                height: 300px; /* Ajusté pour mobile */
             }
         }
     </style>
@@ -572,7 +574,7 @@
         
         <div class="observers-grid">
             <div class="observer-card">
-                <div class="observer-photo" style="background-image: url('delphine.png'); background-color: #e2e8f0;">
+                <div class="observer-photo" style="background-image: url('delphine.png');">
                     <!-- Si l'image n'est pas disponible, afficher l'initiale -->
                     <span style="display: none;">SD</span>
                 </div>
@@ -592,7 +594,7 @@
             </div>
             
             <div class="observer-card">
-                <div class="observer-photo" style="background-image: url('fatou.jpeg'); background-color: #e2e8f0;">
+                <div class="observer-photo" style="background-image: url('fatou.jpeg');">
                     <!-- Si l'image n'est pas disponible, afficher l'initiale -->
                     <span style="display: none;">FW</span>
                 </div>
